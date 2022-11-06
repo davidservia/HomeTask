@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar class="task" color="white">
+    <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <div id="nav-pages">
+    <ion-title>Gestion de Tareas</ion-title>
+    </div> 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <app-task *ngFor="let task of getTasks()" [task]="task" (onEdit)="onEditTask($event)" (onDelete)="onDeleteTask($event)"></app-task>
+  </ion-list>
+</ion-content>
+
+<ion-segment>
+  <ion-segment-button (click)="onNewTask()" icon-only>
+    <ion-icon name="add-circle" color="primary" style="zoom:2"></ion-icon>
+  </ion-segment-button>
+</ion-segment>
